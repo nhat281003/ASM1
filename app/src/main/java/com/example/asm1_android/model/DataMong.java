@@ -1,6 +1,8 @@
 package com.example.asm1_android.model;
 
-public class DataMong {
+import java.io.Serializable;
+
+public class DataMong implements Serializable {
 
     String _id;
     String name;
@@ -63,13 +65,12 @@ public class DataMong {
     }
 
 
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getImage() {
         return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     @Override

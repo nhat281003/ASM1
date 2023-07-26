@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:background="#FF9F25"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:text="EDIT SẢN PHẨM"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <LinearLayout
+           android:layout_marginTop="16dp"
+           android:layout_marginHorizontal="16dp"
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <Spinner
+               android:id="@+id/spnDialog"
+               android:layout_width="match_parent"
+               android:layout_height="50dp" />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Type"
+               android:textSize="15dp"
+               android:textStyle="bold" />
+           <EditText
+               android:id="@+id/dialog_edtType"
+               android:layout_marginTop="8dp"
+               android:hint="Enter your Type"
+               android:padding="16dp"
+               android:background="@drawable/custom_edt"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Image"
+               android:textSize="15dp"
+               android:textStyle="bold" />
+           <EditText
+               android:id="@+id/dialog_edtImage"
+
+               android:layout_marginTop="8dp"
+               android:hint="Enter your Image"
+               android:padding="16dp"
+               android:background="@drawable/custom_edt"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Name"
+               android:textSize="15dp"
+               android:textStyle="bold" />
+           <EditText
+               android:id="@+id/dialog_edtName"
+               android:layout_marginTop="8dp"
+               android:hint="Enter your Name"
+               android:padding="16dp"
+               android:background="@drawable/custom_edt"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+           <TextView
+               android:inputType="textEmailAddress"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Price"
+               android:textSize="15dp"
+               android:textStyle="bold" />
+           <EditText
+               android:id="@+id/dialog_edtPrice"
+
+               android:layout_marginTop="8dp"
+               android:hint="Enter your Price"
+               android:inputType="number"
+               android:padding="16dp"
+               android:background="@drawable/custom_edt"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Descriptions"
+               android:textSize="15dp"
+               android:textStyle="bold" />
+           <EditText
+               android:id="@+id/dialog_edtDesscrip"
+
+               android:layout_marginTop="8dp"
+               android:hint="Enter your Descriptions"
+               android:padding="16dp"
+               android:background="@drawable/custom_edt"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+           <TextView
+               android:layout_weight="1"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+
+
+           <androidx.appcompat.widget.AppCompatButton
+               android:layout_marginBottom="16dp"
+               android:layout_marginTop="20dp"
+               android:id="@+id/confirm_button"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Edit"
+               android:textSize="15dp"
+               android:background="@drawable/custom_btn"
+               android:textColor="@color/white" />
+
+       </LinearLayout>
+   </ScrollView>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

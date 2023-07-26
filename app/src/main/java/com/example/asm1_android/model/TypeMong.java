@@ -1,12 +1,28 @@
 package com.example.asm1_android.model;
 
-public class TypeMong {
-    String name;
-    String dess;
+import java.io.Serializable;
 
-    public TypeMong(String name, String dess) {
+public class TypeMong implements Serializable {
+    String _id;
+    String name;
+    String des;
+
+    public TypeMong() {
+    }
+
+    public TypeMong(String _id, String name, String dess) {
+        this._id = _id;
         this.name = name;
-        this.dess = dess;
+        this.des = dess;
+    }
+
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {
@@ -18,10 +34,20 @@ public class TypeMong {
     }
 
     public String getDess() {
-        return dess;
+        return des;
     }
 
     public void setDess(String dess) {
-        this.dess = dess;
+        this.des = dess;
+    }
+
+
+    @Override
+    public String toString() {
+        return "TypeMong{" +
+                "_id='" + _id + '\'' +
+                ", name='" + name + '\'' +
+                ", des='" + des + '\'' +
+                '}';
     }
 }

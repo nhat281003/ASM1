@@ -1,15 +1,20 @@
 package com.example.asm1_android;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.asm1_android.adpter.Adapter;
 import com.example.asm1_android.api.Apiservide;
+import com.example.asm1_android.api.OnItemClickListener;
 import com.example.asm1_android.model.DataMong;
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,17 +23,40 @@ public class Product extends AppCompatActivity {
     RecyclerView recyclerView;
     public static  List<DataMong> dataMongList = new ArrayList<>();
     Adapter adapter;
+    ImageView imgAdd;
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product);
+        imgAdd= findViewById(R.id.imgAdd);
+
         recyclerView = findViewById(R.id.recyview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(itemDecoration);
+        adapter= new Adapter(dataMongList, new OnItemClickListener() {
+            @Override
+            public void onClickItem(DataMong dataMong) {
+                OnclickItemc(dataMong);
+            }
+        });
         adapter.interCall(this::load);
+
         callApi();
 
+        imgAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Product.this, AddProduct.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
 
     public void callApi() {
         Apiservide.apiservice.getdata().enqueue(new Callback<List<DataMong>>() {
@@ -54,13 +82,28 @@ public class Product extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        adapter = new Adapter(this);
+        adapter = new Adapter(dataMongList, new OnItemClickListener() {
+            @Override
+            public void onClickItem(DataMong dataMong) {
+
+            }
+        });
         callApi();
         adapter.notifyDataSetChanged();
     }
 
+    private  void OnclickItemc(DataMong dataMong){
+        Intent intent = new Intent(this, Detail_item.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object", dataMong);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+    }
+
 
     public void load() {
+
         callApi();
     }
 
