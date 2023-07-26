@@ -65,6 +65,7 @@
             android:textSize="15dp"
             android:textStyle="bold" />
         <EditText
+            android:id="@+id/edtnameLogin"
             android:layout_marginTop="8dp"
             android:hint="Enter your Email"
             android:padding="16dp"
@@ -93,7 +94,7 @@
             app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtpass"
+                android:id="@+id/edtpassLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter your Password"

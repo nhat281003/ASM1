@@ -82,13 +82,13 @@ public class Product extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        callApi();
         adapter = new Adapter(dataMongList, new OnItemClickListener() {
             @Override
             public void onClickItem(DataMong dataMong) {
-
+                OnclickItemc(dataMong);
             }
         });
-        callApi();
         adapter.notifyDataSetChanged();
     }
 

@@ -3,6 +3,7 @@ package com.example.asm1_android.api;
 import com.example.asm1_android.model.DataMong;
 
 import com.example.asm1_android.model.TypeMong;
+import com.example.asm1_android.model.User_login;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.List;
@@ -40,4 +41,13 @@ public interface Apiservide {
 
     @DELETE("danhsach/delete/{idsp}")
     Call<List<DataMong>> deleteData(@Path("idsp") String id);
+
+    @POST("danhsach/login")
+    Call<User_login> login (@Body User_login user_login);
+
+    @POST("danhsach/register")
+    Call<User_login> register (@Body User_login user_login);
+
+
+
 }
