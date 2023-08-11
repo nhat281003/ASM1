@@ -2,6 +2,7 @@ package com.example.asm1_android.api;
 
 import com.example.asm1_android.model.DataMong;
 
+import com.example.asm1_android.model.Message;
 import com.example.asm1_android.model.TypeMong;
 import com.example.asm1_android.model.User_login;
 import com.google.gson.Gson;
@@ -22,7 +23,7 @@ public interface Apiservide {
     Gson gson = new GsonBuilder().setDateFormat("yyyy/MM/dd HH:mm:ss").create();
 
     Apiservide apiservice = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.22:3000/")
+            .baseUrl("http://192.168.1.28:3000/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(Apiservide.class);
@@ -30,8 +31,20 @@ public interface Apiservide {
     @GET("danhsach/danhsach")
     Call<List<DataMong>> getdata();
 
+
+    @GET("danhsach/user")
+    Call<List<User_login>> getUser();
+
+    @GET("danhsach/message")
+    Call<List<Message>> getMessage();
+
     @GET("danhsach/theloai")
     Call<List<TypeMong>> gettheloai();
+
+    @POST("danhsach/addMes")
+    Call<List<Message>> addMess( @Body Message message);
+
+
 
     @POST("danhsach/add")
     Call<List<DataMong>> addData( @Body DataMong dataMong);

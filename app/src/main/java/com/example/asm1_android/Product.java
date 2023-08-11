@@ -3,7 +3,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,8 +16,13 @@ import com.example.asm1_android.adpter.Adapter;
 import com.example.asm1_android.api.Apiservide;
 import com.example.asm1_android.api.OnItemClickListener;
 import com.example.asm1_android.model.DataMong;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import io.socket.emitter.Emitter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,6 +32,7 @@ public class Product extends AppCompatActivity {
     public static  List<DataMong> dataMongList = new ArrayList<>();
     Adapter adapter;
     ImageView imgAdd;
+    TextView text;
 
 
     @SuppressLint("MissingInflatedId")
@@ -31,11 +41,17 @@ public class Product extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product);
         imgAdd= findViewById(R.id.imgAdd);
-
+        text = findViewById(R.id.test);
         recyclerView = findViewById(R.id.recyview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(itemDecoration);
+        text.setOnClickListener( v->{
+            Intent intent = new Intent(Product.this, Chat.class);
+            startActivity(intent);
+
+        });
+
         adapter= new Adapter(dataMongList, new OnItemClickListener() {
             @Override
             public void onClickItem(DataMong dataMong) {
@@ -102,7 +118,6 @@ public class Product extends AppCompatActivity {
 
 
     public void load() {
-
         callApi();
     }
 

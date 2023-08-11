@@ -23,6 +23,7 @@ import com.example.asm1_android.api.Apiservide;
 import com.example.asm1_android.api.InterCallAPI;
 import com.example.asm1_android.api.OnItemClickListener;
 import com.example.asm1_android.model.DataMong;
+import com.example.asm1_android.model.Message;
 import com.example.asm1_android.model.TypeMong;
 import com.squareup.picasso.Picasso;
 
@@ -44,7 +45,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private OnItemClickListener mListener;
     String selectedItem;
     TypeMong typeMong;
-
 
     public void interCall(InterCallAPI interCallAPI) {
         this.interCallAPI = interCallAPI;
